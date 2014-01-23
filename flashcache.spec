@@ -13,7 +13,7 @@ License: GPL
 Group: System Environment/Base
 URL: https://github.com/facebook/flashcache/
 Packager: Hajime Taira <htaira@redhat.com>
-Source0: %{name}-%{version}.tar.gz
+Source0: flashcache-master.tar.gz
 Requires(post): /sbin/chkconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: x86_64
