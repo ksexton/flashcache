@@ -33,7 +33,7 @@ Requires: kernel-uname-r = %{kernel}
 Requires(post): /sbin/depmod
 Requires(postun): /sbin/depmod
 
-%description -n kmod-%{name}-%{kernel}
+%description -n kmod-%{name}
 kernel modules for flashcache
 
 %prep
@@ -72,16 +72,16 @@ rm -rf %{buildroot}
 # %{_sysconfdir}/rc.d/init.d/flashcache
 # %config(noreplace) %{_sysconfdir}/sysconfig/flashcache
 
-%files -n kmod-%{name}-%{kernel}
+%files -n kmod-%{name}
 %{kernel_moduledir}/extra/flashcache/*
 
 %post
 chkconfig --add flashcache
 
-%post -n kmod-%{name}-%{kernel}
+%post -n kmod-%{name}
 depmod -a %{kernel} >/dev/null 2>&1 || :
 
-%postun -n kmod-%{name}-%{kernel}
+%postun -n kmod-%{name}
 depmod -a %{kernel} >/dev/null 2>&1 || :
 
 %changelog
@@ -91,7 +91,7 @@ depmod -a %{kernel} >/dev/null 2>&1 || :
 * Sun Dec 05 2010 13:00:00 +09:00 Hajime Taira <htaira@redhat.com>
 - Initial build.
 
-%changelog -n kmod-%{name}-%{kernel}
+%changelog -n kmod-%{name}
 * Thu Feb 03 2011 13:00:00 +09:00 Hajime Taira <htaira@redhat.com>
 - Split RPM package: flashcache and kmod-flashcache-<uname -r>
 
