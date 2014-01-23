@@ -23,7 +23,7 @@ ExclusiveArch: x86_64
 %description
 Flashcache : A write-back block cache for Linux
 
-%package -n kmod-%{name}-%{kernel}
+%package -n kmod-%{name}
 Summary: kernel modules for flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
 Version: 1.0.20101201git
