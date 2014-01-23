@@ -3,4 +3,4 @@ cwd = $(abspath .)
 # component = $(notdir $(patsubst %/, %, $(dir $(cwd))))
 
 sources:
-	git clone https://github.com/facebook/flashcache.git ./flashcache-1.0.20140121
+	curl -o flashcache-1.0.20140121git.tar.gz https://codeload.github.com/facebook/flashcache/tar.gz/master
