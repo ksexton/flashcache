@@ -3,21 +3,22 @@
 %define krelease %(echo "%{kernel}" | sed -e 's|.*-||')
 %define kernel_moduledir /lib/modules/%{kernel}
 %define kernel_src_path %{kernel_moduledir}/source
+%define flashcache_version %(echo "`date +%Y%m%d`git")
 
 Summary: A write-back block cache for Linux
 Name: flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
-Version: 1.0.20140121git
+Version: %{flashcache_version}
 Release: 3%{?dist}
 License: GPL
 Group: System Environment/Base
 URL: https://github.com/facebook/flashcache/
 Packager: Hajime Taira <htaira@redhat.com>
-Source0: flashcache-master.tar.gz
+Source0: flashcache-%{flashcache_version}.tar.gz
 Requires(post): /sbin/chkconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: x86_64
-BuildRequires: tar gcc make kernel-devel rpm-build dkms yum-utils
+BuildRequires: tar gcc make kernel-devel rpm-build dkms yum-utils git
 ExclusiveArch: x86_64
 
 %description
@@ -26,7 +27,7 @@ Flashcache : A write-back block cache for Linux
 %package -n kmod-%{name}
 Summary: kernel modules for flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
-Version: 1.0.20101201git
+Version: %{flashcache_version}
 Release: 3%{?dist}
 Group: System Environment/Kernel
 Requires: kernel-uname-r = %{kernel}
