@@ -1,3 +1,5 @@
+%global koji_git /usr/bin/git
+
 %{?!kernel:%define kernel %(rpm -q kernel-devel | tail -1 | sed -e 's|kernel-devel-||')}
 %define kversion %(echo "%{kernel}" | sed -e 's|-.*||')
 %define krelease %(echo "%{kernel}" | sed -e 's|.*-||')
@@ -18,7 +20,8 @@ Source0: flashcache-%{flashcache_version}.tar.gz
 Requires(post): /sbin/chkconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: x86_64
-BuildRequires: tar gcc make kernel-devel rpm-build dkms yum-utils git
+BuildRequires: tar gcc make kernel-devel rpm-build dkms yum-utils
+BuildRequires: %{koji_git}
 ExclusiveArch: x86_64
 
 %description
