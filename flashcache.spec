@@ -47,22 +47,22 @@ make KERNEL_TREE=%{kernel_moduledir}/source/
 # make KERNEL_TREE=%{kernel_moduledir}/source/
 
 %install
-install -o root -g root -m 0755 -d %{buildroot}/%{kernel_moduledir}/extra/flashcache
-install -o root -g root -m 0755 src/flashcache.ko %{buildroot}/%{kernel_moduledir}/extra/flashcache/
-# install -o root -g root -m 0755 flashcache-wt/src/flashcache-wt.ko %{buildroot}/%{kernel_moduledir}/extra/flashcache/
-install -o root -g root -m 0755 -d %{buildroot}/sbin
-install -o root -g root -m 0755 src/utils/flashcache_create %{buildroot}/sbin/
-install -o root -g root -m 0755 src/utils/flashcache_destroy %{buildroot}/sbin/
-install -o root -g root -m 0755 src/utils/flashcache_load %{buildroot}/sbin/
-# install -o root -g root -m 0755 flashcache-wt/src/utils/flashcache_wt_create %{buildroot}/sbin/
-# install -o root -g root -m 0755 -d %{buildroot}/%{_sysconfdir}/rc.d/init.d
-# install -o root -g root -m 0755 -d %{buildroot}/%{_sysconfdir}/sysconfig
-# install -o root -g root -m 0755 src/sysvinit/flashcache %{buildroot}/%{_sysconfdir}/rc.d/init.d/flashcache
+install -d %{buildroot}/%{kernel_moduledir}/extra/flashcache
+install src/flashcache.ko %{buildroot}/%{kernel_moduledir}/extra/flashcache/
+# install  flashcache-wt/src/flashcache-wt.ko %{buildroot}/%{kernel_moduledir}/extra/flashcache/
+install -d %{buildroot}/sbin
+install src/utils/flashcache_create %{buildroot}/sbin/
+install src/utils/flashcache_destroy %{buildroot}/sbin/
+install src/utils/flashcache_load %{buildroot}/sbin/
+# install  flashcache-wt/src/utils/flashcache_wt_create %{buildroot}/sbin/
+# install  -d %{buildroot}/%{_sysconfdir}/rc.d/init.d
+# install  -d %{buildroot}/%{_sysconfdir}/sysconfig
+# install  src/sysvinit/flashcache %{buildroot}/%{_sysconfdir}/rc.d/init.d/flashcache
 # install -o root -g root -m 0644 src/sysconfig/flashcache %{buildroot}/%{_sysconfdir}/sysconfig/flashcache
-install -o root -g root -m 0644 README %{buildroot}/sbin/
-install -o root -g root -m 0755 -d %{buildroot}/usr/share/doc/%{name}-%{version}
-install -o root -g root -m 0644 doc/flashcache-doc.txt %{buildroot}/usr/share/doc/%{name}-%{version}/
-install -o root -g root -m 0644 doc/flashcache-sa-guide.txt %{buildroot}/usr/share/doc/%{name}-%{version}/
+install README %{buildroot}/sbin/
+install -d %{buildroot}/usr/share/doc/%{name}-%{version}
+install doc/flashcache-doc.txt %{buildroot}/usr/share/doc/%{name}-%{version}/
+install doc/flashcache-sa-guide.txt %{buildroot}/usr/share/doc/%{name}-%{version}/
 
 %clean
 rm -rf %{buildroot}
