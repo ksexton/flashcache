@@ -18,7 +18,7 @@ Source0: flashcache-%{flashcache_version}.tar.gz
 Requires(post): /sbin/chkconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch: x86_64
-BuildRequires: tar gcc make kernel-devel rpm-build dkms yum-utils
+BuildRequires: tar gcc make kernel kernel-devel rpm-build dkms yum-utils
 ExclusiveArch: x86_64
 
 %description
@@ -30,7 +30,7 @@ Vendor: flashcache development, https://github.com/facebook/flashcache
 Version: %{flashcache_version}
 Release: 3%{?dist}
 Group: System Environment/Kernel
-Requires: kernel-uname-r = %{kernel}
+Requires: kernel kernel-devel
 Requires(post): /sbin/depmod
 Requires(postun): /sbin/depmod
 
