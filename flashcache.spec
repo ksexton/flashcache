@@ -27,8 +27,8 @@ Flashcache : A write-back block cache for Linux
 %package -n kmod-%{name}
 Summary: kernel modules for flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
-Version: %{version}
-Release: %{release}
+Version: %{kversion}
+Release: %{krelease}
 Group: System Environment/Kernel
 Requires: kernel kernel-devel
 Requires(post): /sbin/depmod
