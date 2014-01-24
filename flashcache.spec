@@ -6,7 +6,7 @@
 %define flashcache_version %(echo "`date +%Y%m%d`git")
 
 Summary: A write-back block cache for Linux
-Name: flashcache-%{flashcache_vesion}
+Name: flashcache-%{flashcache_version}
 Vendor: flashcache development, https://github.com/facebook/flashcache
 Version: %{kversion}
 Release: %{krelease}
