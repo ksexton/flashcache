@@ -9,11 +9,11 @@ Summary: A write-back block cache for Linux
 Name: flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
 Version: %{flashcache_version}
-Release: 3%{?dist}
+Release: %{kversion}-%{krelease}
 License: GPL
 Group: System Environment/Base
 URL: https://github.com/facebook/flashcache/
-Packager: Hajime Taira <htaira@redhat.com>
+Packager: Kyle Sexton <ksexton@codero.com>
 Source0: flashcache-%{flashcache_version}.tar.gz
 Requires(post): /sbin/chkconfig
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
