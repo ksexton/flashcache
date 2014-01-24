@@ -1,7 +1,6 @@
 %{?!kernel:%define kernel %(rpm -q kernel-devel | tail -1 | sed -e 's|kernel-devel-||')}
 %define kversion %(echo "%{kernel}" | sed -e 's|-.*||')
 %define krelease %(echo "%{kernel}" | sed -e 's|.*-||')
-%define runningkernel %{kversion}-%{krelease}
 %define kernel_moduledir /lib/modules/%{kernel}
 %define kernel_src_path %{kernel_moduledir}/source
 %define flashcache_version %(echo "`date +%Y%m%d`git")
@@ -10,7 +9,7 @@ Summary: A write-back block cache for Linux
 Name: flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
 Version: %{flashcache_version}
-Release: %{runningkernel}
+Release: %{kernel}
 License: GPL
 Group: System Environment/Base
 URL: https://github.com/facebook/flashcache/
