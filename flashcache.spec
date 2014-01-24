@@ -8,8 +8,8 @@
 Summary: A write-back block cache for Linux
 Name: flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
-Version: %{kernel}-%{flashcache_version}
-Release: 4
+Version: %{flashcache_version}
+Release: %{kernel}
 License: GPL
 Group: System Environment/Base
 URL: https://github.com/facebook/flashcache/
