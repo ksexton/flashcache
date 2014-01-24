@@ -6,10 +6,10 @@
 %define flashcache_version %(echo "`date +%Y%m%d`git")
 
 Summary: A write-back block cache for Linux
-Name: flashcache-%{flashcache_version}
+Name: flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
-Version: %{kversion}
-Release: %{krelease}
+Version: %{flashcache_version}
+Release: 5
 License: GPL
 Group: System Environment/Base
 URL: https://github.com/facebook/flashcache/
@@ -27,8 +27,8 @@ Flashcache : A write-back block cache for Linux
 %package -n kmod-%{name}
 Summary: kernel modules for flashcache
 Vendor: flashcache development, https://github.com/facebook/flashcache
-Version: %{kversion}
-Release: %{krelease}
+Version: %{flashcache_version}
+Release: 5
 Group: System Environment/Kernel
 Requires: kernel kernel-devel
 Requires(post): /sbin/depmod
